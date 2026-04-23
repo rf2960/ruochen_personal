@@ -53,6 +53,8 @@ function GitHubIcon() {
 }
 
 export default function App() {
+  const photoUrl = `${import.meta.env.BASE_URL}ruochen-photo.jpg`;
+
   return (
     <div className="site-shell">
       <header className="hero" id="top">
@@ -100,7 +102,7 @@ export default function App() {
               <div className="hero-photo-wrap">
                 <img
                   className="hero-photo"
-                  src="/ruochen-photo.jpg"
+                  src={photoUrl}
                   alt="Portrait of Ruochen Feng"
                 />
               </div>
