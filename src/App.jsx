@@ -30,11 +30,11 @@ const publications = [
   },
   {
     title:
-      "Mathematical Modelling and Data-Driven Analysis Chapter",
+      "A Novel Kalman Filter Algorithm Using Stance Detection for an Inertial Navigation System",
     meta: "Springer Chapter",
     href: "https://link.springer.com/chapter/10.1007/978-981-15-8411-4_260",
     description:
-      "A published chapter connected to applied mathematical modelling and quantitative analysis.",
+      "A Springer chapter focused on inertial navigation and stance detection with a Kalman-filter-based approach.",
   },
 ];
 
