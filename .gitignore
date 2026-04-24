@@ -1,3 +1,10 @@
 node_modules
 dist
 .DS_Store
+.env
+.env.*
+coverage
+*.log
+*.tmp
+page-check.png
+page-check-domain.png

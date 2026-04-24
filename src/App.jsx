@@ -21,18 +21,20 @@ const focusItems = [
 
 const publications = [
   {
-    title: "Personal Website Repository",
-    meta: "GitHub",
-    href: "https://github.com/rf2960/ruochen_personal",
-    description: "The codebase for this website and future project archive.",
-  },
-  {
     title:
       "Leveraging Mathematical Modelling to Evaluate Malaria Vaccination Roll-Out Strategies in Cameroon",
     meta: "SSRN Preprint",
     href: "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5250090",
     description:
-      "Preprint on vaccination strategy evaluation using age-structured mathematical modelling.",
+      "A preprint studying vaccination strategy evaluation with age-structured mathematical modelling.",
+  },
+  {
+    title:
+      "Mathematical Modelling and Data-Driven Analysis Chapter",
+    meta: "Springer Chapter",
+    href: "https://link.springer.com/chapter/10.1007/978-981-15-8411-4_260",
+    description:
+      "A published chapter connected to applied mathematical modelling and quantitative analysis.",
   },
 ];
 
@@ -156,7 +158,7 @@ export default function App() {
           <div className="content-width">
             <div className="section-heading">
               <p className="section-label">Publications</p>
-              <h2>A small set of links, with more to come.</h2>
+              <h2>Selected publications.</h2>
             </div>
             <div className="publication-list">
               {publications.map((item) => (
