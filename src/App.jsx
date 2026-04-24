@@ -1,21 +1,21 @@
 const focusItems = [
   {
     index: "01",
-    title: "Current Work",
+    title: "Industry",
     description:
-      "M.S. in Data Science at Columbia University, with current research in multi-modal deep learning for cancer progression at the Reya Lab.",
+      "Incoming Data Scientist Intern at Google Maps, building driver-based forecasting for Trips with end-to-end ML, evaluation, interpretability, and product-facing analytics.",
   },
   {
     index: "02",
-    title: "Industry",
+    title: "Research",
     description:
-      "Incoming Data Scientist Intern at Google Maps, with prior experience in data engineering at VeriSilicon and risk analytics at OCBC.",
+      "At the Reya Lab, I work on histopathology image analysis with multi-class tissue modeling, StarDist-based cell segmentation, and interactive tools for patch-level exploration.",
   },
   {
     index: "03",
     title: "Foundation",
     description:
-      "Mathematics and Statistics training from the University of Toronto, shaped by applied machine learning, forecasting, and large-scale data work.",
+      "Previous work across VeriSilicon and OCBC, together with mathematics and statistics training at the University of Toronto, shaped my approach to forecasting, data systems, and applied ML.",
   },
 ];
 
@@ -56,6 +56,8 @@ function GitHubIcon() {
 
 export default function App() {
   const photoUrl = `${import.meta.env.BASE_URL}ruochen-photo.jpg`;
+  const resumeUrl = `${import.meta.env.BASE_URL}Feng_Resume.pdf`;
+  const viewerUrl = `${import.meta.env.BASE_URL}stardist-tma-viewer.html`;
 
   return (
     <div className="site-shell">
@@ -67,6 +69,7 @@ export default function App() {
               <div className="nav-links">
                 <a href="#about">About</a>
                 <a href="#focus">Work</a>
+                <a href="#projects">Projects</a>
                 <a href="#publications">Publications</a>
                 <a href="#contact">Contact</a>
               </div>
@@ -95,6 +98,14 @@ export default function App() {
                 <div className="hero-actions">
                   <a className="button button-primary" href="#focus">
                     View work
+                  </a>
+                  <a
+                    className="button button-secondary"
+                    href={resumeUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Resume
                   </a>
                   <a className="button button-secondary" href="#publications">
                     Publications
@@ -140,7 +151,7 @@ export default function App() {
           <div className="content-width">
             <div className="section-heading">
               <p className="section-label">Work</p>
-              <h2>Selected highlights from research, industry, and training.</h2>
+              <h2>Industry first, with research grounded in concrete work.</h2>
             </div>
             <div className="focus-grid">
               {focusItems.map((item) => (
@@ -150,6 +161,66 @@ export default function App() {
                   <p>{item.description}</p>
                 </article>
               ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="section projects-section" id="projects">
+          <div className="content-width">
+            <div className="section-heading">
+              <p className="section-label">Projects</p>
+              <h2>Selected work with something concrete to open.</h2>
+            </div>
+            <div className="project-grid">
+              <article className="project-card">
+                <p className="project-meta">Research Tool</p>
+                <h3>StarDist TMA Viewer</h3>
+                <p>
+                  An interactive HTML viewer for histopathology TMA analysis,
+                  built to inspect segmented cells, compare cores, filter by
+                  area, and jump into dense patches for closer review.
+                </p>
+                <ul className="project-points">
+                  <li>Patch-level and core-level exploration in one interface</li>
+                  <li>Built around StarDist segmentation outputs and spatial features</li>
+                  <li>Designed to make model behavior and tissue structure easier to inspect</li>
+                </ul>
+                <div className="project-actions">
+                  <a
+                    className="button button-secondary"
+                    href={viewerUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Open viewer
+                  </a>
+                </div>
+              </article>
+
+              <article className="project-card">
+                <p className="project-meta">LLM System Design</p>
+                <h3>TravelMind</h3>
+                <p>
+                  A travel-planning project centered on multi-stage reasoning,
+                  progressive refinement, and an interface that moves from open
+                  input to structured itinerary output.
+                </p>
+                <ul className="project-points">
+                  <li>Two flows: destination discovery and existing-plan enhancement</li>
+                  <li>Combines product thinking, LLM workflow design, and interface clarity</li>
+                  <li>Documented with screenshots, demo video, and architecture artifacts</li>
+                </ul>
+                <div className="project-actions">
+                  <a
+                    className="button button-secondary"
+                    href="https://github.com/rf2960/TravelMind"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    View repo
+                  </a>
+                </div>
+              </article>
             </div>
           </div>
         </section>
@@ -186,35 +257,31 @@ export default function App() {
           <div className="content-width">
             <div className="section-heading">
               <p className="section-label">Contact</p>
-              <h2>Connect by email, LinkedIn, or GitHub</h2>
+              <h2>Connect.</h2>
             </div>
             <p className="contact-copy">
               I use this site as a concise home for my background, research,
-              publications, and future projects. The best direct contact is my
-              Columbia email.
+              publications, and selected projects.
             </p>
             <p className="contact-email-display">rf2960@columbia.edu</p>
             <div className="contact-actions">
-              <a className="contact-link" href="mailto:rf2960@columbia.edu">
-                rf2960@columbia.edu
-              </a>
               <a
-                className="button button-secondary"
+                className="social-link"
                 href="https://www.linkedin.com/in/ruochenfeng/"
                 target="_blank"
                 rel="noreferrer"
+                aria-label="LinkedIn"
               >
                 <LinkedInIcon />
-                LinkedIn
               </a>
               <a
-                className="button button-secondary"
+                className="social-link"
                 href="https://github.com/rf2960"
                 target="_blank"
                 rel="noreferrer"
+                aria-label="GitHub"
               >
                 <GitHubIcon />
-                GitHub
               </a>
             </div>
           </div>
