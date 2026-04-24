@@ -335,6 +335,13 @@ h3 {
   margin: 1rem 0 1.5rem;
 }
 
+.contact-email-display {
+  margin: 0 0 1rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--accent-soft);
+}
+
 @media (max-width: 800px) {
   .hero-layout,
   .two-column,

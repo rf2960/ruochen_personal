@@ -186,15 +186,20 @@ export default function App() {
           <div className="content-width">
             <div className="section-heading">
               <p className="section-label">Contact</p>
-              <h2>Connect on LinkedIn or GitHub</h2>
+              <h2>Connect by email, LinkedIn, or GitHub</h2>
             </div>
             <p className="contact-copy">
-              I use this site as a concise home for my background, research, and
-              future projects.
+              I use this site as a concise home for my background, research,
+              publications, and future projects. The best direct contact is my
+              Columbia email.
             </p>
+            <p className="contact-email-display">rf2960@columbia.edu</p>
             <div className="contact-actions">
+              <a className="contact-link" href="mailto:rf2960@columbia.edu">
+                rf2960@columbia.edu
+              </a>
               <a
-                className="contact-link"
+                className="button button-secondary"
                 href="https://www.linkedin.com/in/ruochenfeng/"
                 target="_blank"
                 rel="noreferrer"
