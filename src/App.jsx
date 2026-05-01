@@ -66,8 +66,8 @@ const projectItems = [
     meta: "Visualization",
     title: "Market Investment Visualization",
     description:
-      "Publication-style venture analytics report on Crunchbase startup outcomes, built around censoring-aware interpretation, funding ladders, cohort structure, and market exit fingerprints.",
-    tags: ["EDA", "Kaggle-style", "SVG report"],
+      "Interactive Crunchbase venture outcomes analysis with executive-level storytelling, cohort-aware interpretation, market fingerprints, and funding-depth exploration.",
+    tags: ["Data storytelling", "Interactive report", "Venture data"],
     href: "https://github.com/rf2960/market-investment-visualization",
     secondaryHref: "https://rf2960.github.io/market-investment-visualization/",
     action: "View repo",
@@ -85,16 +85,56 @@ const projectItems = [
 ];
 
 const toolkitItems = [
-  "Python",
-  "SQL",
-  "PyTorch",
-  "scikit-learn",
-  "TensorFlow",
-  "Spark",
-  "Kafka",
-  "AWS/GCP",
-  "Tableau",
-  "StarDist",
+  {
+    name: "Python",
+    role: "Core programming",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
+  },
+  {
+    name: "SQL",
+    role: "Data querying",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
+  },
+  {
+    name: "PyTorch",
+    role: "Deep learning",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg",
+  },
+  {
+    name: "TensorFlow",
+    role: "ML systems",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg",
+  },
+  {
+    name: "scikit-learn",
+    role: "Classical ML",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/scikitlearn/scikitlearn-original.svg",
+  },
+  {
+    name: "Spark",
+    role: "Distributed data",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apachespark/apachespark-original.svg",
+  },
+  {
+    name: "Docker",
+    role: "Deployment",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg",
+  },
+  {
+    name: "AWS",
+    role: "Cloud",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg",
+  },
+  {
+    name: "Google Cloud",
+    role: "Cloud",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg",
+  },
+  {
+    name: "Git",
+    role: "Version control",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
+  },
 ];
 
 const publications = [
@@ -132,6 +172,28 @@ function GitHubIcon() {
   );
 }
 
+function SkillLogo({ item }) {
+  return (
+    <article className="skill-tile">
+      <span className="skill-icon">
+        <img
+          src={item.icon}
+          alt=""
+          aria-hidden="true"
+          onError={(event) => {
+            event.currentTarget.style.display = "none";
+          }}
+        />
+        <span className="skill-fallback">{item.name.slice(0, 2)}</span>
+      </span>
+      <span>
+        <strong>{item.name}</strong>
+        <small>{item.role}</small>
+      </span>
+    </article>
+  );
+}
+
 export default function App() {
   const photoUrl = `${import.meta.env.BASE_URL}ruochen-photo.jpg`;
   const resumeUrl = `${import.meta.env.BASE_URL}Feng_Resume.pdf`;
@@ -157,6 +219,14 @@ export default function App() {
 
   return (
     <div className="site-shell">
+      <nav className="section-rail" aria-label="Section navigation">
+        <a href="#top" aria-label="Intro" />
+        <a href="#about" aria-label="About" />
+        <a href="#focus" aria-label="Work" />
+        <a href="#projects" aria-label="Projects" />
+        <a href="#publications" aria-label="Publications" />
+        <a href="#contact" aria-label="Contact" />
+      </nav>
       <header className="hero" id="top">
         <div className="content-width">
           <nav className="topbar">
@@ -214,12 +284,6 @@ export default function App() {
                   src={photoUrl}
                   alt="Portrait of Ruochen Feng"
                 />
-                <div className="signal-panel" aria-hidden="true">
-                  <span>forecasting</span>
-                  <span>pathology ML</span>
-                  <span>RAG systems</span>
-                  <span>visual analytics</span>
-                </div>
               </div>
             </div>
           </div>
@@ -246,9 +310,9 @@ export default function App() {
                 raw data into usable insight.
               </p>
             </div>
-            <div className="toolkit-row" aria-label="Technical toolkit">
+            <div className="skills-grid" aria-label="Technical toolkit">
               {toolkitItems.map((item) => (
-                <span key={item}>{item}</span>
+                <SkillLogo item={item} key={item.name} />
               ))}
             </div>
           </div>
