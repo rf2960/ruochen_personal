@@ -36,12 +36,12 @@ const projectItems = [
     meta: "Research Tool",
     title: "StarDist Nuclear Segmentation",
     description:
-      "Scale-aware StarDist pipeline and interactive TMA viewer for reviewing nuclei, spatial core structure, dense patches, and segmentation behavior across H&E tissue microarrays.",
-    tags: ["StarDist", "OpenSlide", "HTML viewer"],
+      "Scale-normalized H&E TMA nuclear segmentation pipeline using OpenSlide, TensorFlow/StarDist 2D_versatile_he, stain-gated filtering, overlap deduplication, and interactive core/tile review.",
+    tags: ["TensorFlow", "StarDist", "OpenSlide", "WSI analysis"],
     href: "https://github.com/rf2960/stardist-nuclear-segmentation",
     secondaryHref: `${import.meta.env.BASE_URL}stardist-tma-viewer.html`,
     action: "View repo",
-    secondaryAction: "Open viewer",
+    secondaryAction: "Open viewer hub",
     featured: true,
   },
   {
