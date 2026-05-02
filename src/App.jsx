@@ -5,19 +5,43 @@ const focusItems = [
     index: "01",
     title: "Industry",
     description:
-      "Incoming Data Scientist Intern at Google Maps, building driver-based forecasting for Trips with end-to-end ML, evaluation, interpretability, and product-facing analytics.",
+      "Incoming Data Scientist Intern at Google Maps Navigation Trips, building driver-based forecasting with feature engineering, baseline evaluation, dashboards, and Gemini-powered forecast summaries.",
   },
   {
     index: "02",
     title: "Research",
     description:
-      "At the Reya Lab, I work on histopathology image analysis with multi-class tissue modeling, StarDist-based cell segmentation, and interactive tools for patch-level exploration.",
+      "At Columbia's Reya Lab, I build histopathology ML workflows across 43K+ annotated H&E tiles, slide-held-out validation, threshold tuning, and StarDist nuclear segmentation over 80K+ masks.",
   },
   {
     index: "03",
     title: "Foundation",
     description:
-      "Previous work across VeriSilicon and OCBC, together with mathematics and statistics training at the University of Toronto, shaped my approach to forecasting, data systems, and applied ML.",
+      "Earlier internships at VeriSilicon and OCBC Bank sharpened the production side: Spark/Kafka reporting, SQL pipelines over millions of records, risk dashboards, and volatility forecasting.",
+  },
+];
+
+const resumeHighlights = [
+  {
+    label: "Recruiter signal",
+    title: "Google Maps forecasting",
+    body:
+      "Incoming Data Scientist Intern selected for Navigation Trips work, focused on trip-demand forecasting, model evaluation, performance optimization, and product-facing insight delivery.",
+    details: ["Time-series ML", "Regression baselines", "Gemini summaries"],
+  },
+  {
+    label: "Industry impact",
+    title: "Data systems plus analytics",
+    body:
+      "Built reporting and analysis workflows across AWS, Spark, Kafka, SQL, Tableau, and Python, including 100K+ product records, ~10M+ risk records, and measurable adoption / accuracy gains.",
+    details: ["50% faster reports", "17.3% SMB adoption lift", "21.4% forecast accuracy gain"],
+  },
+  {
+    label: "Applied ML depth",
+    title: "Biomedical computer vision",
+    body:
+      "Developed H&E image-analysis pipelines using PyTorch, scikit-learn, StarDist, and interactive QA tooling to connect research-grade model work with inspectable outputs.",
+    details: ["43,213 tiles", "5 tissue classes", "80K+ nuclear masks"],
   },
 ];
 
@@ -77,7 +101,7 @@ const projectItems = [
     meta: "Lab Tool - In Revision",
     title: "Organoid Counter",
     description:
-      "SegFormer-based organoid counting tool copied from mentor lab work and currently waiting for your own revision around code ownership, manuscript positioning, and documentation.",
+      "SegFormer-based organoid counting work in revision, positioned as a bioimage analysis project with clearer documentation, ownership boundaries, and manuscript-oriented framing underway.",
     tags: ["SegFormer", "Bioimage", "In progress"],
     href: "https://github.com/rf2960/organoid-counter",
     action: "View repo",
@@ -223,6 +247,7 @@ export default function App() {
         <a href="#top" aria-label="Intro" />
         <a href="#about" aria-label="About" />
         <a href="#focus" aria-label="Work" />
+        <a href="#resume" aria-label="Resume" />
         <a href="#projects" aria-label="Projects" />
         <a href="#publications" aria-label="Publications" />
         <a href="#contact" aria-label="Contact" />
@@ -235,6 +260,7 @@ export default function App() {
               <div className="nav-links">
                 <a href="#about">About</a>
                 <a href="#focus">Work</a>
+                <a href="#resume">Resume</a>
                 <a href="#projects">Projects</a>
                 <a href="#publications">Publications</a>
                 <a href="#contact">Contact</a>
@@ -258,8 +284,8 @@ export default function App() {
                 <h1>Ruochen Feng</h1>
                 <p className="intro">
                   M.S. Data Science student at Columbia University building
-                  machine learning systems for forecasting, biomedical image
-                  analysis, evidence-grounded AI, and decision-focused analytics.
+                  machine learning systems for forecasting, biomedical computer
+                  vision, evidence-grounded AI, and decision-focused analytics.
                 </p>
                 <div className="hero-actions">
                   <a className="button button-primary" href="#focus">
@@ -295,19 +321,18 @@ export default function App() {
           <div className="content-width">
             <div className="section-heading">
               <p className="section-label">About</p>
-              <h2>Research-minded, data-driven, and concise by design.</h2>
+              <h2>Data scientist with a stronger industry-first read.</h2>
             </div>
             <div className="two-column">
               <p>
                 I am currently pursuing an M.S. in Data Science at Columbia
                 University after completing an H.B.Sc. in Mathematics and
-                Statistics with a Computer Science minor at the University of
-                Toronto.
+                Statistics with High Distinction at the University of Toronto.
               </p>
               <p>
-                My work sits between research and practice: deep learning,
-                modeling, forecasting, analytics, and the systems needed to turn
-                raw data into usable insight.
+                My strongest throughline is applied ML under real constraints:
+                forecasting for Maps, data pipelines for business decisions,
+                and research tools that make model outputs inspectable.
               </p>
             </div>
             <div className="skills-grid" aria-label="Technical toolkit">
@@ -322,7 +347,7 @@ export default function App() {
           <div className="content-width">
             <div className="section-heading">
               <p className="section-label">Work</p>
-              <h2>Industry first, with research grounded in concrete work.</h2>
+              <h2>Forecasting, data systems, and applied ML with evidence.</h2>
             </div>
             <div className="focus-grid">
               {focusItems.map((item) => (
@@ -332,6 +357,46 @@ export default function App() {
                   <p>{item.description}</p>
                 </article>
               ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="section resume-section reveal" id="resume">
+          <div className="content-width">
+            <div className="section-heading">
+              <p className="section-label">Resume</p>
+              <h2>Current recruiting snapshot.</h2>
+            </div>
+            <div className="resume-layout">
+              <div className="resume-copy">
+                <p>
+                  The latest resume now leads with Columbia Data Science and an
+                  incoming Google Maps Data Scientist Internship, then backs it
+                  with measurable internship outcomes and research-grade ML work.
+                </p>
+                <a
+                  className="button button-primary"
+                  href={resumeUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Open latest resume
+                </a>
+              </div>
+              <div className="resume-highlights">
+                {resumeHighlights.map((item) => (
+                  <article className="resume-highlight" key={item.title}>
+                    <p className="resume-label">{item.label}</p>
+                    <h3>{item.title}</h3>
+                    <p>{item.body}</p>
+                    <div className="tag-row">
+                      {item.details.map((detail) => (
+                        <span key={detail}>{detail}</span>
+                      ))}
+                    </div>
+                  </article>
+                ))}
+              </div>
             </div>
           </div>
         </section>
