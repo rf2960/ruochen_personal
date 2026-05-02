@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="360" viewBox="0 0 980 360"><rect width="980" height="360" fill="white"/>
+<text x="34.0" y="46.0" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="750" fill="#0b1324" text-anchor="start">Current Status Snapshot</text>
+<text x="34.0" y="74.0" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="400" fill="#5b6475" text-anchor="start">Operating status dominates, so outcome rates require cohort context.</text>
+<text x="34.0" y="149.0" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="750" fill="#0b1324" text-anchor="start">Operating</text>
+<rect x="220" y="120" width="650.0" height="44" rx="8" fill="#5578b8"/>
+<text x="884.0" y="148.0" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="750" fill="#0b1324" text-anchor="start">41,829 (86.9%)</text>
+<text x="34.0" y="217.0" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="750" fill="#0b1324" text-anchor="start">Acquired</text>
+<rect x="220" y="188" width="57.4" height="44" rx="8" fill="#2f9b68"/>
+<text x="291.4" y="216.0" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="750" fill="#0b1324" text-anchor="start">3,692 (7.7%)</text>
+<text x="34.0" y="285.0" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="750" fill="#0b1324" text-anchor="start">Closed</text>
+<rect x="220" y="256" width="40.4" height="44" rx="8" fill="#d45b64"/>
+<text x="274.4" y="284.0" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="750" fill="#0b1324" text-anchor="start">2,603 (5.4%)</text></svg>

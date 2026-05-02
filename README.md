@@ -1,115 +1,51 @@
-# Ruochen Feng Personal Website
+# Ruochen Feng Portfolio
 
-A concise personal website built with React and Vite to present research interests, professional background, and selected publications in a clean, portfolio-ready format.
+A handcrafted personal portfolio for Ruochen Feng, built with React and Vite.
 
-## Motivation
+The site is designed as a small editorial system rather than a resume dump. It
+organizes data science, ML research, GenAI product thinking, experience, and
+creative interests into distinct pages with project case notes.
 
-This repository exists to give recruiters, collaborators, and research contacts a polished introduction to Ruochen Feng without forcing them to read a full CV first. The site is designed to feel minimal and professional while leaving room for future project pages and case studies.
-
-## Key Features
-
-- Concise landing page with clear professional positioning
-- Resume-informed summary of education, research, and industry experience
-- Selected publications section with external links
-- Responsive single-page layout optimized for GitHub Pages
-- Custom-domain-ready deployment workflow
-
-## Tech Stack
-
-- React 18
-- Vite 5
-- CSS
-- GitHub Actions
-- GitHub Pages
-
-## Project Structure
+## Structure
 
 ```text
-.
-|-- .github/workflows/deploy.yml
-|-- docs/screenshots/
-|   `-- README.md
-|-- public/
-|   |-- CNAME
-|   |-- ruochen-photo.jpg
-|   `-- vite.svg
-|-- src/
-|   |-- App.jsx
-|   |-- main.jsx
-|   `-- styles.css
-|-- index.html
-|-- package.json
-`-- vite.config.js
+/
+/about
+/projects
+/projects/pancreas-he-pathology
+/projects/stardist-nuclear-segmentation
+/projects/travelmind
+/projects/venture-outcomes
+/research
+/experience
+/creative
+/lab
+/contact
 ```
 
-## Architecture / Workflow
+GitHub Pages fallback support is handled by copying `dist/index.html` to
+`dist/404.html` after build.
 
-The site is implemented as a small React single-page application. `App.jsx` defines the content structure, `styles.css` controls the visual presentation, and Vite builds static assets for deployment. GitHub Actions installs dependencies, builds the site, and publishes the output to GitHub Pages.
+## Features
 
-## Setup
+- Multi-page portfolio with lightweight client-side routing
+- Detailed project case notes with problem, approach, decisions, tradeoffs, and lessons
+- Local "Ask the portfolio" guide powered by curated site notes
+- Project focus interaction on the projects index
+- SEO and Open Graph metadata
+- Responsive editorial layout with accessible links and form controls
+
+## Development
 
 ```bash
 npm install
-```
-
-## Run Locally
-
-```bash
 npm run dev
 ```
 
-Then open the local Vite URL shown in the terminal.
-
-## Production Build
+## Build
 
 ```bash
 npm run build
 ```
 
-## Example Usage
-
-This project is intended to be used as:
-
-- a personal landing page linked from a resume or LinkedIn profile
-- a lightweight academic and professional portfolio
-- a base for future project writeups and publication pages
-
-## Demo / Screenshots
-
-Screenshot placeholders live in `docs/screenshots/README.md`.
-
-Suggested assets to add:
-
-- homepage hero section
-- publications section
-- mobile responsive view
-
-## Results
-
-Current outcome:
-
-- the site deploys successfully to GitHub Pages
-- the repository URL renders the production page correctly
-- the structure is intentionally lightweight so the site can be expanded without heavy refactoring
-
-## Future Improvements
-
-- add a dedicated projects page with case studies
-- add writing, talks, or notes sections
-- improve publication metadata with venue, year, and co-author context
-- add curated screenshots for the README
-
-## Deployment
-
-1. Push to `main`.
-2. In GitHub, open `Settings` -> `Pages`.
-3. Set `Source` to `GitHub Actions`.
-4. Confirm the workflow in `.github/workflows/deploy.yml` completes successfully.
-5. After the default GitHub Pages URL works, attach the custom domain.
-
-## Verification Commands
-
-```bash
-npm run dev
-npm run build
-```
+The production build outputs static files to `dist/`.
