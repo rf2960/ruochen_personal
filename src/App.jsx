@@ -49,8 +49,8 @@ const projects = [
     learned:
       "Research storytelling has to make the model legible without flattening the uncertainty that makes the work honest.",
     gallery: [
-      asset("research-impact-day-poster.jpg"),
-      asset("research-impact-day-group.jpg"),
+      asset("research-impact-day-activity.jpg"),
+      asset("research-ai-methods-group.jpg"),
     ],
   },
   {
@@ -93,7 +93,7 @@ const projects = [
     type: "Research tooling",
     deck:
       "A scale-aware tissue microarray segmentation workflow with a viewer for reviewing nuclei, tiles, and spatial context.",
-    image: asset("case-assets/pathology/example_tile_mosaic.png"),
+    image: asset("case-assets/pathology/stardist-selected-patch-core1-r3-c2.png"),
     repo: "https://github.com/rf2960/stardist-nuclear-segmentation",
     artifact: asset("stardist-tma-viewer.html"),
     stats: [
@@ -115,7 +115,10 @@ const projects = [
     ],
     learned:
       "For biomedical tools, interface design is not cosmetic. It is how reviewers decide whether output is believable.",
-    gallery: [asset("case-assets/pathology/example_tile_mosaic.png")],
+    gallery: [
+      asset("case-assets/pathology/stardist-selected-patch-core1-r3-c2.png"),
+      asset("case-assets/pathology/example_tile_mosaic.png"),
+    ],
   },
   {
     slug: "travelmind",
@@ -123,7 +126,7 @@ const projects = [
     type: "Agentic AI concept",
     deck:
       "A multi-agent travel-planning concept shown through product screens, architecture artifacts, and a hosted demo walkthrough.",
-    image: asset("case-assets/travelmind/discover_result.png"),
+    image: asset("case-assets/travelmind/travelmind-homepage.png"),
     repo: "https://github.com/rf2960/travelmind-planner",
     artifact: asset("travelmind-demo.html"),
     stats: [
@@ -147,6 +150,7 @@ const projects = [
     learned:
       "A useful AI product needs boundaries: mode separation, fallback thinking, and output that makes assumptions visible.",
     gallery: [
+      asset("case-assets/travelmind/travelmind-homepage.png"),
       asset("case-assets/travelmind/discover_result.png"),
       asset("case-assets/travelmind/plan_result.png"),
     ],
@@ -210,16 +214,16 @@ const publications = [
 
 const researchMoments = [
   {
-    image: asset("research-impact-day-poster.jpg"),
+    image: asset("research-impact-day-activity.jpg"),
     caption: "IHMPE Research & Impact Day 2025",
     note:
       "Poster presentation on mathematical modeling for malaria vaccination roll-out strategies in Cameroon.",
   },
   {
-    image: asset("research-impact-day-group.jpg"),
-    caption: "Research & impact community",
+    image: asset("research-ai-methods-group.jpg"),
+    caption: "AI and mathematical modeling research group",
     note:
-      "A small moment from the same research setting, included as context rather than personal branding.",
+      "A broader research-room moment that connects the modeling work with applied AI methods.",
   },
 ];
 
@@ -692,7 +696,11 @@ function SelectedWork({ onOpenProject, focusedSlug }) {
                   <em>{project.deck}</em>
                 </span>
                 <span className="work-image">
-                  <img src={project.image} alt="" loading={index === 0 ? "eager" : "lazy"} />
+                  <img
+                    src={project.image}
+                    alt={`${project.title} preview`}
+                    loading={index === 0 ? "eager" : "lazy"}
+                  />
                 </span>
               </button>
             </article>
@@ -743,9 +751,15 @@ function ProjectFocus({ project, onClose }) {
               )}
             </div>
           </div>
-          <span className="focus-media">
-            <img src={project.image} alt="" />
-          </span>
+          <a
+            className="focus-media"
+            href={project.image}
+            target="_blank"
+            rel="noreferrer"
+            aria-label={`Open full-size ${project.title} preview`}
+          >
+            <img src={project.image} alt={`${project.title} preview`} />
+          </a>
         </div>
 
         <div className="focus-stats">
@@ -766,8 +780,17 @@ function ProjectFocus({ project, onClose }) {
         </div>
 
         <div className="focus-gallery">
-          {project.gallery.map((src) => (
-            <img key={src} src={src} alt="" loading="lazy" />
+          {project.gallery.map((src, index) => (
+            <a
+              className="focus-gallery-item"
+              key={src}
+              href={src}
+              target="_blank"
+              rel="noreferrer"
+              aria-label={`Open full-size ${project.title} visual ${index + 1}`}
+            >
+              <img src={src} alt={`${project.title} visual ${index + 1}`} loading="lazy" />
+            </a>
           ))}
         </div>
       </article>
