@@ -117,7 +117,6 @@ const projects = [
       "For biomedical tools, interface design is not cosmetic. It is how reviewers decide whether output is believable.",
     gallery: [
       asset("case-assets/pathology/stardist-core1-overview-detections.png"),
-      asset("case-assets/pathology/stardist-patch-grid-core1.png"),
       asset("case-assets/pathology/stardist-selected-patch-core1-r3-c2.png"),
     ],
   },
@@ -161,7 +160,7 @@ const projects = [
     type: "Data storytelling",
     deck:
       "An interactive startup-outcomes analysis that treats company status as censored evidence rather than a simple success label.",
-    image: asset("case-assets/investments/market_exit_fingerprint.svg"),
+    image: asset("case-assets/investments/venture-artifact-cohort-section.png"),
     repo: "https://github.com/rf2960/market-investment-visualization",
     artifact: "https://rf2960.github.io/market-investment-visualization/",
     stats: [
