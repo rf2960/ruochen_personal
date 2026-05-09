@@ -47,7 +47,7 @@ const projects = [
       "Modeling evidence depends on assumptions, calibration, and sensitivity analysis.",
     ],
     learned:
-      "Research storytelling has to make the model legible without flattening the uncertainty that makes the work honest.",
+      "Good research writing makes assumptions and uncertainty easy to find.",
     gallery: [
       asset("research-impact-day-poster.jpg"),
       asset("research-impact-day-group.jpg"),
@@ -58,7 +58,7 @@ const projects = [
     title: "Pancreas H&E Pathology AI",
     type: "Biomedical ML",
     deck:
-      "A research-grade computer vision workflow for pancreatic H&E tiles, built around validation discipline and honest model limits.",
+      "A computer vision workflow for pancreatic H&E tiles, with validation, threshold tuning, and model-card notes.",
     image: asset("case-assets/pathology/pipeline_overview.png"),
     repo: "https://github.com/rf2960/pancreas-he-pathology",
     artifact: null,
@@ -68,11 +68,11 @@ const projects = [
       ["0.573", "tuned tissue macro F1"],
     ],
     problem:
-      "Histopathology data makes easy stories dangerous: tiles are slide-correlated, classes are imbalanced, and raw scans cannot be published casually.",
+      "Histopathology data needs careful validation: tiles are slide-correlated, classes are imbalanced, and raw scans cannot be published casually.",
     built:
       "I built a public workflow around QuPath annotation export, coordinate-aware tile parsing, WideResNet training, leave-one-slide-out validation, threshold tuning, model-card notes, and figure generation.",
     decisions: [
-      "Make validation design the center of the story.",
+      "Make validation design explicit.",
       "Show enough artifacts to make the work inspectable without exposing private data.",
       "Frame threshold tuning as research evidence, not clinical deployment.",
     ],
@@ -81,7 +81,7 @@ const projects = [
       "Rare classes still make macro F1 more meaningful than accuracy alone.",
     ],
     learned:
-      "The serious part of ML is often the least theatrical part: leakage control, documentation, and deciding what not to claim.",
+      "The strongest parts of the project were leakage control, documentation, and clear limits.",
     gallery: [
       asset("case-assets/pathology/threshold_tuning_summary.png"),
       asset("case-assets/pathology/qupath_to_ml_workflow.png"),
@@ -114,7 +114,7 @@ const projects = [
       "Segmentation still depends on stain quality, thresholds, and core detection.",
     ],
     learned:
-      "For biomedical tools, interface design is not cosmetic. It is how reviewers decide whether output is believable.",
+      "For biomedical tools, review interfaces help people judge whether outputs are plausible.",
     gallery: [
       asset("case-assets/pathology/stardist-core1-overview-detections.png"),
       asset("case-assets/pathology/stardist-selected-patch-core1-r3-c2.png"),
@@ -148,7 +148,7 @@ const projects = [
       "Its value is product reasoning and system decomposition, not production metrics.",
     ],
     learned:
-      "A useful AI product needs boundaries: mode separation, fallback thinking, and output that makes assumptions visible.",
+      "A useful AI product needs clear modes, fallback behavior, and visible assumptions.",
     gallery: [
       asset("case-assets/travelmind/discover_result.png"),
       asset("case-assets/travelmind/plan_result.png"),
@@ -182,7 +182,7 @@ const projects = [
       "Funding is aggregated, not a time-series treatment model.",
     ],
     learned:
-      "Good analysis sometimes means slowing the reader down before they reach the wrong conclusion.",
+      "Good analysis often starts by removing the easy but misleading conclusion.",
     gallery: [
       asset("case-assets/investments/venture-artifact-overview-section.png"),
       asset("case-assets/investments/venture-artifact-markets-section.png"),
@@ -236,7 +236,7 @@ const ongoingWork = {
   details: [
     "Batch-oriented analysis for folders of microscopy images.",
     "GUI workflow built around model selection, tiling, masks, and spreadsheet outputs.",
-    "Public repo remains active and intentionally framed as research tooling in progress.",
+    "The public repo is active and still in progress.",
   ],
 };
 
@@ -244,35 +244,35 @@ const aboutNotes = [
   {
     title: "Background",
     body:
-      "I am a data science and machine learning student at Columbia, building toward work that connects research discipline with useful product surfaces.",
+      "I am a data science and machine learning student at Columbia.",
   },
   {
     title: "What I work on",
     body:
-      "My current center of gravity is biomedical computer vision, GenAI product systems, forecasting, and small tools that make model output easier to inspect.",
+      "Biomedical computer vision, GenAI product concepts, forecasting, and tools for reviewing model output.",
   },
   {
     title: "Current focus",
     body:
-      "I am preparing for Google Maps Navigation Trips forecasting work while continuing research tooling around pathology images and model review.",
+      "Incoming Google Maps intern on Navigation Trips forecasting; continuing pathology-image tooling on the side.",
   },
 ];
 
 const principles = [
   {
-    title: "Make uncertainty visible.",
+    title: "Show uncertainty.",
     body:
-      "Whether the system is a pathology classifier or an LLM planner, I want users to see what the model knows, what it assumes, and where the edge cases live.",
+      "For a classifier, planner, or report, I want assumptions and edge cases to be visible.",
   },
   {
-    title: "Design is part of the method.",
+    title: "Make work inspectable.",
     body:
-      "A viewer, demo, or report is not decoration. It is how other people inspect the work without standing over my shoulder.",
+      "A viewer, demo, or report should help someone check the work without extra explanation.",
   },
   {
-    title: "Do not overstate the artifact.",
+    title: "Do not overstate it.",
     body:
-      "I would rather make a smaller project feel clear and honest than make it sound larger than it is.",
+      "I prefer a smaller project with clear limits to a larger-sounding one with vague claims.",
   },
 ];
 
@@ -282,37 +282,37 @@ const worlds = [
     label: "Research",
     title: "Biomedical ML and mathematical modeling.",
     body:
-      "Research, for me, is the habit of making claims slowly: validate the split, document the data, and keep the limitations in the room.",
+      "I care about validation, documentation, and being clear about what a result can and cannot say.",
   },
   {
     id: "engineering",
     label: "Engineering",
     title: "Pipelines, forecasting, and decision surfaces.",
     body:
-      "Earlier internships pushed me toward the practical layer: SQL joins, dashboards, reporting reliability, and models that have to explain themselves.",
+      "Earlier internships pushed me toward practical systems: SQL joins, dashboards, reporting reliability, and models that need explanation.",
   },
   {
     id: "creative",
     label: "Creative",
     title: "Music, UI taste, and small experiments.",
     body:
-      "Music and interface design shape the way I build: structure, pacing, restraint, and the tiny details that make something feel humane.",
+      "Music and interface design influence how I think about structure, pacing, and editing.",
   },
   {
     id: "lab",
     label: "Lab",
     title: "Questions that are allowed to be unfinished.",
     body:
-      "Some prototypes are valuable because they reveal a direction. I keep room for experiments that are closer to sketches than products.",
+      "Some prototypes are closer to sketches than products. A few belong here.",
   },
 ];
 
 const guideAnswers = [
   {
     keywords: ["", "empty"],
-    title: "Ask a little more specifically.",
+    title: "Try a topic.",
     body:
-      "Try asking about a project, research direction, internship framing, creative work, or which piece is strongest for recruiting.",
+      "Ask about a project, research, internships, creative work, or recruiting strengths.",
   },
   {
     keywords: ["strong", "strongest", "first", "read", "best"],
@@ -322,51 +322,51 @@ const guideAnswers = [
   },
   {
     keywords: ["paper", "publication", "ssrn", "malaria", "cameroon", "vaccine", "vaccination"],
-    title: "The malaria modeling paper is the clean research signal.",
+    title: "The malaria paper is the main research item.",
     body:
-      "It belongs in both Selected Work and Research because it shows authorship, mathematical modeling, and public-health framing without pretending to be a software project.",
+      "It shows authorship, mathematical modeling, and public-health framing. I keep it separate from software projects.",
   },
   {
     keywords: ["springer", "kalman", "inertial", "navigation", "stance"],
     title: "The Springer chapter adds publication history.",
     body:
-      "It is best framed as a conference chapter in Lecture Notes in Electrical Engineering, separate from current ML work but useful for research credibility.",
+      "It is a conference chapter in Lecture Notes in Electrical Engineering. It is older, but still useful context.",
   },
   {
     keywords: ["organoid", "organic", "counter", "segformer", "ongoing"],
     title: "Organoid Counter is ongoing research tooling.",
     body:
-      "It should read as active iteration: segmentation-assisted microscopy counting, GUI workflow, and batch analysis for research use.",
+      "It is active work around microscopy counting, a GUI workflow, and batch analysis.",
   },
   {
     keywords: ["stardist", "segmentation", "nuclei", "nuclear", "viewer"],
-    title: "StarDist shows research-tool judgment.",
+    title: "StarDist is about review workflow.",
     body:
-      "The strongest angle is not the segmentation count alone. It is the review workflow: making detections visible, shareable, and easier to question.",
+      "The useful part is not just the count. It is the viewer that makes detections easier to inspect.",
   },
   {
     keywords: ["travel", "travelmind", "agent", "llm", "genai", "ai"],
-    title: "TravelMind is a product story.",
+    title: "TravelMind is a product concept.",
     body:
-      "Its value is the decomposition of an AI workflow into modes, agents, and user-facing outputs. It should not be framed as a live production app.",
+      "Its value is the breakdown of an AI workflow into modes, agent roles, and user-facing outputs.",
   },
   {
     keywords: ["creative", "music", "design", "ui"],
-    title: "The creative side is a lens.",
+    title: "Creative work is a secondary thread.",
     body:
-      "It is less about formal credits and more about taste: pacing, texture, interface calmness, and editing.",
+      "It shows taste, pacing, interface calmness, and editing. I keep it light on the site.",
   },
   {
     keywords: ["google", "forecast", "maps", "intern"],
-    title: "Google Maps is future-facing.",
+    title: "Google Maps is incoming work.",
     body:
-      "The right framing is incoming forecasting work, selected for Navigation Trips. Do not claim impact before the internship happens.",
+      "It is incoming forecasting work for Navigation Trips, so I mention it without claiming impact yet.",
   },
   {
     keywords: ["venture", "startup", "visualization", "censoring", "data"],
-    title: "Venture outcomes is about restraint.",
+    title: "Venture outcomes is about careful comparison.",
     body:
-      "It is useful because it refuses easy causal claims. The project shows how to make a data story more honest by foregrounding cohort maturity and survivorship bias.",
+      "It uses cohort maturity and survivorship bias to avoid overreading startup outcome data.",
   },
   {
     keywords: ["contact", "email", "resume", "linkedin", "github"],
@@ -383,9 +383,9 @@ function getGuideAnswer(question) {
     guideAnswers
       .slice(1)
       .find((item) => item.keywords.some((keyword) => text.includes(keyword))) || {
-      title: "Here is the honest read.",
+      title: "Best starting points",
       body:
-        "This portfolio is strongest when it is read through evidence and process: pathology ML for rigor, StarDist for review tooling, TravelMind for product reasoning, and venture outcomes for careful interpretation.",
+        "The strongest pieces are pathology ML for technical depth, StarDist for review tooling, TravelMind for product reasoning, and venture outcomes for data visualization.",
     }
   );
 }
@@ -452,7 +452,7 @@ function App() {
     const description = document.querySelector('meta[name="description"]');
     description?.setAttribute(
       "content",
-      "A continuous portfolio narrative for Ruochen Feng: ML systems, research tooling, GenAI product thinking, creative experiments, and contact.",
+      "Portfolio of Ruochen Feng: ML projects, research tooling, publications, and selected product experiments.",
     );
   }, []);
 
@@ -593,13 +593,13 @@ function Landing() {
     <section className="stage landing-stage" id="identity" aria-label="Identity">
       <div className="hero-name-wrap">
         <LogoMark />
-        <p className="stage-kicker">Data science / ML / designed systems</p>
+        <p className="stage-kicker">Data science / ML / research tools</p>
         <h1 className="hero-name">
           <span>Ruochen</span>
           <span>Feng</span>
         </h1>
         <p className="identity-line">
-          I build intelligent systems that stay legible, usable, and a little more human.
+          I build ML tools, data products, and interfaces for reviewing model output.
         </p>
       </div>
       <div className="scroll-cue" aria-hidden="true">
@@ -615,11 +615,10 @@ function About() {
     <section className="stage about-stage" id="about" aria-label="About Ruochen Feng">
       <div className="chapter-label">01 / About</div>
       <div className="about-intro">
-        <h2>I sit between ML rigor and the interface where people judge the work.</h2>
+        <h2>I work across ML, research tooling, and product interfaces.</h2>
         <p>
-          I am drawn to systems where the technical result is only half the problem. The
-          other half is whether someone can inspect it, trust its limits, and use it
-          without the model becoming a black box.
+          I care about the parts after a model runs: validation, review,
+          documentation, and whether the output can be questioned.
         </p>
       </div>
       <div className="about-body">
@@ -657,11 +656,10 @@ function SelectedWork({ onOpenProject, focusedSlug }) {
     <section className="stage work-stage" id="work" aria-label="Selected work">
       <div className="chapter-label">02 / Selected work</div>
       <div className="work-heading">
-        <h2>Five artifacts, each with a different kind of evidence.</h2>
+        <h2>Selected work</h2>
         <p>
-          The carousel keeps the visual rhythm steady, so the differences are in the
-          work itself: publications, research rigor, review tooling, product reasoning,
-          and careful interpretation.
+          A small set of projects across research, ML tooling, product demos, and data
+          visualization.
         </p>
       </div>
       <div className="work-controls" aria-label="Project carousel controls">
@@ -825,11 +823,10 @@ function Research() {
       <div className="chapter-label">03 / Research</div>
       <div className="research-layout">
         <div className="research-intro">
-          <h2>Research presence, kept precise.</h2>
+          <h2>Research and publications</h2>
           <p>
-            This section separates papers and research activity from product demos. The
-            signal is intentionally academic: title, venue, authorship, context, and a
-            direct path to the paper.
+            Papers, research activity, and ongoing tools. I keep these separate from
+            product demos.
           </p>
         </div>
         <div className="publication-list">
@@ -855,8 +852,7 @@ function Research() {
           <span>Activity highlight</span>
           <h3>IHMPE Research & Impact Day 2025</h3>
           <p>
-            A real-world research moment around the malaria vaccination modeling work,
-            included quietly so the portfolio has evidence of activity beyond code repos.
+            A poster presentation connected to the malaria vaccination modeling work.
           </p>
         </div>
         <div className="moment-gallery">
@@ -908,11 +904,10 @@ function Worlds({ guideAnswer, onAsk }) {
       <div className="chapter-label">04 / Expansion</div>
       <div className="worlds-layout">
         <div className="worlds-copy">
-          <h2>Different rooms, same way of paying attention.</h2>
+          <h2>Other directions</h2>
           <p>
-            Research, engineering, creative work, and experiments are not separate
-            identities here. They are different lighting on the same question: how do
-            you make complex things easier to understand?
+            A few areas outside the main project carousel: research, engineering
+            practice, creative work, and experiments.
           </p>
         </div>
         <div className="world-grid">
@@ -928,8 +923,8 @@ function Worlds({ guideAnswer, onAsk }) {
 
       <div className="ask-strip">
         <div>
-          <span>Portfolio guide</span>
-          <h3>A small local index of the site.</h3>
+          <span>Site guide</span>
+          <h3>Quick lookup</h3>
         </div>
         <div className="ask-console">
           <div className="ask-input">
@@ -953,10 +948,10 @@ function Worlds({ guideAnswer, onAsk }) {
             </article>
           ) : (
             <article aria-live="polite">
-              <h4>Ask in your own words.</h4>
+              <h4>Ask a topic.</h4>
               <p>
-                This stays deliberately local: it routes common questions to the most
-                relevant part of the portfolio without pretending to be a full chatbot.
+                This is a local index. It points common questions to the relevant
+                section.
               </p>
             </article>
           )}
@@ -971,10 +966,10 @@ function Ending() {
     <section className="stage ending-stage" id="contact" aria-label="Contact">
       <div className="ending-card">
         <p className="chapter-label">05 / Contact</p>
-        <h2>Back to the person.</h2>
+        <h2>Contact</h2>
         <p>
           I am open to data science, ML research, product-oriented AI, and small
-          collaborations where careful thinking matters.
+          collaborations.
         </p>
         <div className="ending-links">
           <a href={links.email}>Email</a>
