@@ -154,7 +154,7 @@ const projects = [
     learned:
       "RAG is most useful here when it makes sources, counter-evidence, and evaluation visible, not when it simply summarizes headlines.",
     demo:
-      "The demo is a local Streamlit dashboard. The linked static demo page uses saved project data to show Live Analysis, Evidence Audit, Evaluation Lab, and the system architecture.",
+      "The project runs as a local Streamlit dashboard. The linked demo page shows captured UI screens, the final report, and the system architecture; a live public app would need separate Streamlit deployment.",
     future: [
       "Deploy the Streamlit demo or add a short walkthrough video.",
       "Replace TF-IDF retrieval with FAISS or Chroma for dense retrieval experiments.",
@@ -163,9 +163,9 @@ const projects = [
       "Evaluate retrieval quality on a larger live-data sample.",
     ],
     gallery: [
-      asset("case-assets/finance/finsight-live-analysis-demo.svg"),
-      asset("case-assets/finance/finsight-evidence-audit-demo.svg"),
-      asset("case-assets/finance/finsight-evaluation-demo.svg"),
+      asset("case-assets/finance/finsight-streamlit-evidence.png"),
+      asset("case-assets/finance/finsight-streamlit-evaluation.png"),
+      asset("case-assets/finance/finsight-streamlit-market-scan.png"),
       asset("case-assets/finance/finsight-system-architecture-web.png"),
     ],
   },
