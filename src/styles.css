@@ -502,6 +502,38 @@ p {
   line-height: 1.62;
 }
 
+.work-tags,
+.focus-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.42rem;
+}
+
+.work-copy > .work-tags {
+  color: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.work-tags i,
+.focus-tags span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  padding: 0.26rem 0.48rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(255, 252, 246, 0.7);
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-style: normal;
+  font-weight: 820;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
 .work-image {
   overflow: hidden;
   align-self: center;
@@ -678,6 +710,10 @@ p {
   flex-wrap: wrap;
   gap: 0.6rem;
   margin-top: 1.25rem;
+}
+
+.focus-tags {
+  margin-top: 1rem;
 }
 
 .focus-actions a,

@@ -121,6 +121,52 @@ const projects = [
     ],
   },
   {
+    slug: "finance-news-analyzer",
+    title: "Finance News Analyzer",
+    type: "RAG + Agent Workflow",
+    deck:
+      "A Streamlit system that turns ticker-level financial news into cited short-horizon signal packets.",
+    image: asset("case-assets/finance/finsight-rag-cover.svg"),
+    repo: "https://github.com/rf2960/finance-news-analyzer",
+    artifact: null,
+    tags: ["RAG", "Agent Workflow", "LLM", "Financial News", "Retrieval"],
+    stats: [
+      ["3", "agent stages"],
+      ["TF-IDF", "retrieval"],
+      ["5d / 20d", "evaluation"],
+    ],
+    problem:
+      "Financial news is noisy and fast-moving. A headline can look important without being novel, well-sourced, or relevant to forward returns.",
+    built:
+      "I built FinSight RAG, a local Streamlit dashboard that ingests ticker-relevant news, retrieves evidence chunks, adds technical and macro context, and produces structured signal packets with citations, confidence, risks, counter-evidence, and an agent trace.",
+    decisions: [
+      "Use TF-IDF retrieval with a keyword fallback so the demo can run without heavy infrastructure.",
+      "Route evidence through Analyst, Strategist, and Decision stages instead of one undifferentiated prompt.",
+      "Support both heuristic local mode and an optional OpenAI/LangGraph path when an API key is provided.",
+      "Evaluate generated signals against 5-day and 20-day forward returns in the bundled demo sample.",
+    ],
+    tradeoffs: [
+      "The Streamlit UI is local; there is no hosted demo link yet.",
+      "The current retrieval layer is TF-IDF, not a dense vector index.",
+      "The evaluation sample is useful for a class project, not evidence of a production trading strategy.",
+    ],
+    learned:
+      "RAG is most useful here when it makes sources, counter-evidence, and evaluation visible, not when it simply summarizes headlines.",
+    demo:
+      "Demo placeholder: add screenshots or a short walkthrough showing ticker input, retrieved articles, evidence audit, agent trace, and the final financial insight summary.",
+    future: [
+      "Add a hosted demo or short video walkthrough.",
+      "Replace TF-IDF retrieval with FAISS or Chroma for dense retrieval experiments.",
+      "Improve citation grounding and source verification.",
+      "Add sentiment, risk-event, and ticker-level monitoring views.",
+      "Evaluate retrieval quality on a larger live-data sample.",
+    ],
+    gallery: [
+      asset("case-assets/finance/finsight-system-architecture-web.png"),
+      asset("case-assets/finance/finsight-demo-placeholder.svg"),
+    ],
+  },
+  {
     slug: "travelmind",
     title: "TravelMind Planner",
     type: "Agentic AI concept",
@@ -369,6 +415,12 @@ const guideAnswers = [
       "It uses cohort maturity and survivorship bias to avoid overreading startup outcome data.",
   },
   {
+    keywords: ["finance", "news", "rag", "agent", "finsight", "ticker", "market"],
+    title: "Finance News Analyzer is the most AI-focused project.",
+    body:
+      "It combines retrieval, a three-stage agent workflow, Streamlit UI, source audit, and forward-return evaluation. It is framed as research tooling, not financial advice.",
+  },
+  {
     keywords: ["contact", "email", "resume", "linkedin", "github"],
     title: "Use the ending links.",
     body:
@@ -385,7 +437,7 @@ function getGuideAnswer(question) {
       .find((item) => item.keywords.some((keyword) => text.includes(keyword))) || {
       title: "Best starting points",
       body:
-        "The strongest pieces are pathology ML for technical depth, StarDist for review tooling, TravelMind for product reasoning, and venture outcomes for data visualization.",
+        "The strongest pieces are pathology ML for technical depth, Finance News Analyzer for RAG/agents, StarDist for review tooling, and TravelMind for product reasoning.",
     }
   );
 }
@@ -691,6 +743,13 @@ function SelectedWork({ onOpenProject, focusedSlug }) {
                   <span>{project.type}</span>
                   <strong>{project.title}</strong>
                   <em>{project.deck}</em>
+                  {project.tags && (
+                    <span className="work-tags">
+                      {project.tags.slice(0, 3).map((tag) => (
+                        <i key={tag}>{tag}</i>
+                      ))}
+                    </span>
+                  )}
                 </span>
                 <span className="work-image">
                   <img
@@ -735,6 +794,13 @@ function ProjectFocus({ project, onClose }) {
           <div>
             <h2 id="project-title">{project.title}</h2>
             <p>{project.deck}</p>
+            {project.tags && (
+              <div className="focus-tags" aria-label={`${project.title} tags`}>
+                {project.tags.map((tag) => (
+                  <span key={tag}>{tag}</span>
+                ))}
+              </div>
+            )}
             <div className="focus-actions">
               {project.repo && (
                 <a href={project.repo} target="_blank" rel="noreferrer">
@@ -774,6 +840,8 @@ function ProjectFocus({ project, onClose }) {
           <FocusList title="Key decisions" items={project.decisions} />
           <FocusList title="Tradeoffs" items={project.tradeoffs} />
           <FocusBlock title="What I learned" body={project.learned} wide />
+          {project.demo && <FocusBlock title="Demo" body={project.demo} wide />}
+          {project.future && <FocusList title="Limitations / future work" items={project.future} wide />}
         </div>
 
         <div className="focus-gallery">
@@ -804,9 +872,9 @@ function FocusBlock({ title, body, wide = false }) {
   );
 }
 
-function FocusList({ title, items }) {
+function FocusList({ title, items, wide = false }) {
   return (
-    <section className="focus-block">
+    <section className={wide ? "focus-block wide" : "focus-block"}>
       <h3>{title}</h3>
       <ul>
         {items.map((item) => (

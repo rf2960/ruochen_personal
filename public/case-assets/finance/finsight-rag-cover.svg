@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">FinSight RAG finance news analyzer cover</title>
+  <desc id="desc">A calm finance intelligence dashboard showing news retrieval, agent workflow, and signal evaluation.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#eef5f4"/>
+      <stop offset="0.52" stop-color="#f7f4ee"/>
+      <stop offset="1" stop-color="#e8edf2"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="22" stdDeviation="22" flood-color="#1c2a2d" flood-opacity="0.14"/>
+    </filter>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <g opacity="0.18" stroke="#415e63" stroke-width="1">
+    <path d="M0 130H1600M0 260H1600M0 390H1600M0 520H1600M0 650H1600M0 780H1600"/>
+    <path d="M150 0V900M300 0V900M450 0V900M600 0V900M750 0V900M900 0V900M1050 0V900M1200 0V900M1350 0V900M1500 0V900"/>
+  </g>
+  <g transform="translate(110 105)">
+    <text x="0" y="0" font-family="Inter, Manrope, Arial, sans-serif" font-size="26" font-weight="800" letter-spacing="7" fill="#587066">RAG / AGENT WORKFLOW</text>
+    <text x="0" y="78" font-family="Georgia, 'Times New Roman', serif" font-size="86" font-weight="700" fill="#101820">Finance News</text>
+    <text x="0" y="164" font-family="Georgia, 'Times New Roman', serif" font-size="86" font-weight="700" fill="#101820">Analyzer</text>
+    <text x="0" y="225" font-family="Inter, Manrope, Arial, sans-serif" font-size="28" fill="#61706f">retrieval-grounded market news analysis</text>
+  </g>
+  <g transform="translate(110 420)" filter="url(#shadow)">
+    <rect x="0" y="0" width="1380" height="330" rx="18" fill="#fffdf8" stroke="#ccd7d4"/>
+    <g transform="translate(44 54)">
+      <rect width="250" height="220" rx="14" fill="#eef6f5" stroke="#c6d8d5"/>
+      <text x="24" y="45" font-family="Inter, Manrope, Arial, sans-serif" font-size="24" font-weight="800" fill="#10202a">News input</text>
+      <text x="24" y="86" font-family="Inter, Manrope, Arial, sans-serif" font-size="19" fill="#5f6f70">Yahoo Finance</text>
+      <text x="24" y="122" font-family="Inter, Manrope, Arial, sans-serif" font-size="19" fill="#5f6f70">RSS sources</text>
+      <text x="24" y="158" font-family="Inter, Manrope, Arial, sans-serif" font-size="19" fill="#5f6f70">Market data</text>
+      <path d="M24 184h150" stroke="#2b7a78" stroke-width="8" stroke-linecap="round"/>
+    </g>
+    <path d="M330 164h95" stroke="#7f938f" stroke-width="4" stroke-linecap="round"/>
+    <path d="M410 146l22 18-22 18" fill="none" stroke="#7f938f" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    <g transform="translate(455 54)">
+      <rect width="250" height="220" rx="14" fill="#f7f9fb" stroke="#cbd6df"/>
+      <text x="24" y="45" font-family="Inter, Manrope, Arial, sans-serif" font-size="24" font-weight="800" fill="#10202a">RAG retrieval</text>
+      <text x="24" y="86" font-family="Inter, Manrope, Arial, sans-serif" font-size="19" fill="#5f6f70">TF-IDF ranking</text>
+      <text x="24" y="122" font-family="Inter, Manrope, Arial, sans-serif" font-size="19" fill="#5f6f70">chunked articles</text>
+      <text x="24" y="158" font-family="Inter, Manrope, Arial, sans-serif" font-size="19" fill="#5f6f70">source weights</text>
+      <circle cx="200" cy="178" r="23" fill="#2b7a78"/>
+      <text x="189" y="186" font-family="Inter, Manrope, Arial, sans-serif" font-size="24" font-weight="800" fill="#fffdf8">8</text>
+    </g>
+    <path d="M740 164h95" stroke="#7f938f" stroke-width="4" stroke-linecap="round"/>
+    <path d="M820 146l22 18-22 18" fill="none" stroke="#7f938f" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    <g transform="translate(865 54)">
+      <rect width="250" height="220" rx="14" fill="#fff8ed" stroke="#d9cdbb"/>
+      <text x="24" y="45" font-family="Inter, Manrope, Arial, sans-serif" font-size="24" font-weight="800" fill="#10202a">Agents</text>
+      <text x="24" y="86" font-family="Inter, Manrope, Arial, sans-serif" font-size="19" fill="#5f6f70">Analyst</text>
+      <text x="24" y="122" font-family="Inter, Manrope, Arial, sans-serif" font-size="19" fill="#5f6f70">Strategist</text>
+      <text x="24" y="158" font-family="Inter, Manrope, Arial, sans-serif" font-size="19" fill="#5f6f70">Decision</text>
+      <path d="M165 178h58" stroke="#9c7447" stroke-width="8" stroke-linecap="round"/>
+    </g>
+    <path d="M1150 164h70" stroke="#7f938f" stroke-width="4" stroke-linecap="round"/>
+    <path d="M1205 146l22 18-22 18" fill="none" stroke="#7f938f" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    <g transform="translate(1240 54)">
+      <rect width="96" height="220" rx="14" fill="#edf3ec" stroke="#cbd8c4"/>
+      <path d="M28 160V95M50 160V65M72 160V120" stroke="#6d7b61" stroke-width="13" stroke-linecap="round"/>
+      <text x="22" y="45" font-family="Inter, Manrope, Arial, sans-serif" font-size="20" font-weight="800" fill="#10202a">Signal</text>
+    </g>
+  </g>
+</svg>
