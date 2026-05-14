@@ -10,81 +10,61 @@ const links = {
 };
 
 const chapters = [
-  { id: "identity", label: "Identity" },
+  { id: "identity", label: "Home" },
   { id: "about", label: "About" },
   { id: "work", label: "Work" },
   { id: "research", label: "Research" },
-  { id: "worlds", label: "Worlds" },
+  { id: "ongoing", label: "Ongoing" },
   { id: "contact", label: "Contact" },
 ];
 
 const projects = [
   {
-    slug: "malaria-vaccination-modelling",
-    title: "Malaria Vaccination Roll-out Strategies",
-    type: "Research",
-    status: "Working paper",
+    slug: "finance-news-analyzer",
+    title: "Finance News Analyzer",
+    type: "RAG + Agent Workflow",
     deck:
-      "A mathematical modeling paper evaluating malaria vaccination roll-out strategies in Cameroon through age-structured transmission dynamics.",
-    image: asset("case-assets/research/malaria-modelling.svg"),
-    repo: null,
-    artifact: "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5250090",
+      "Ticker-level news analysis with retrieval, source audit, and short-horizon signal evaluation.",
+    image: asset("case-assets/finance/finsight-rag-cover.svg"),
+    repo: "https://github.com/rf2960/finance-news-analyzer",
+    artifact: asset("finance-news-demo.html"),
+    artifactLabel: "Demo",
+    report: asset("case-assets/finance/finsight-final-report.pdf"),
+    tags: ["RAG", "Agents", "Streamlit", "TF-IDF", "Evaluation"],
     stats: [
-      ["SSRN", "working paper"],
-      ["25", "pages"],
-      ["2025", "posted"],
+      ["3", "agent stages"],
+      ["TF-IDF", "retrieval"],
+      ["5d / 20d", "evaluation"],
     ],
     problem:
-      "Vaccination roll-out decisions depend on timing, demographic structure, and transmission dynamics; a single aggregate estimate can hide the strategic tradeoffs.",
+      "Financial news is noisy and changes quickly. A useful tool needs to show sources, uncertainty, and how a signal was produced.",
     built:
-      "I contributed to a modeling study that evaluates malaria vaccination strategies for Cameroon, connecting mathematical assumptions to public-health interpretation.",
+      "I built a local Streamlit dashboard that ingests ticker-relevant news, retrieves evidence chunks, adds market context, and produces signal packets with citations, confidence, risks, counter-evidence, and an agent trace.",
     decisions: [
-      "Frame the work as a research paper rather than a software product.",
-      "Show topic, authorship, and research context without overstating policy impact.",
+      "Use TF-IDF retrieval with a keyword fallback so the demo can run locally.",
+      "Separate the workflow into Analyst, Strategist, and Decision stages.",
+      "Show source cards and evaluation results next to the generated signal.",
     ],
     tradeoffs: [
-      "The public artifact is a working paper, not a deployed health intervention.",
-      "Modeling evidence depends on assumptions, calibration, and sensitivity analysis.",
+      "The UI runs locally; a public live demo would need separate Streamlit hosting.",
+      "The retrieval layer is TF-IDF, not a dense vector index.",
+      "The evaluation sample is a class-project check, not a trading claim.",
     ],
     learned:
-      "Good research writing makes assumptions and uncertainty easy to find.",
+      "For RAG products, the interface matters because users need to inspect the evidence, not just read the answer.",
+    demo:
+      "The demo page shows captured Streamlit screens, the final report, and the system architecture.",
+    future: [
+      "Deploy the Streamlit app.",
+      "Test FAISS or Chroma retrieval.",
+      "Improve citation grounding and source verification.",
+      "Add ticker-level monitoring views.",
+    ],
     gallery: [
-      asset("research-impact-day-poster.jpg"),
-      asset("research-impact-day-group.jpg"),
-    ],
-  },
-  {
-    slug: "pancreas-he-pathology",
-    title: "Pancreas H&E Pathology AI",
-    type: "Biomedical ML",
-    deck:
-      "A computer vision workflow for pancreatic H&E tiles, with validation, threshold tuning, and model-card notes.",
-    image: asset("case-assets/pathology/pipeline_overview.png"),
-    repo: "https://github.com/rf2960/pancreas-he-pathology",
-    artifact: null,
-    stats: [
-      ["43,213", "annotated tiles"],
-      ["39,944", "held-out predictions"],
-      ["0.573", "tuned tissue macro F1"],
-    ],
-    problem:
-      "Histopathology data needs careful validation: tiles are slide-correlated, classes are imbalanced, and raw scans cannot be published casually.",
-    built:
-      "I built a public workflow around QuPath annotation export, coordinate-aware tile parsing, WideResNet training, leave-one-slide-out validation, threshold tuning, model-card notes, and figure generation.",
-    decisions: [
-      "Make validation design explicit.",
-      "Show enough artifacts to make the work inspectable without exposing private data.",
-      "Frame threshold tuning as research evidence, not clinical deployment.",
-    ],
-    tradeoffs: [
-      "The model is research-grade and not clinically deployable.",
-      "Rare classes still make macro F1 more meaningful than accuracy alone.",
-    ],
-    learned:
-      "The strongest parts of the project were leakage control, documentation, and clear limits.",
-    gallery: [
-      asset("case-assets/pathology/threshold_tuning_summary.png"),
-      asset("case-assets/pathology/qupath_to_ml_workflow.png"),
+      asset("case-assets/finance/finsight-streamlit-evidence.png"),
+      asset("case-assets/finance/finsight-streamlit-evaluation.png"),
+      asset("case-assets/finance/finsight-streamlit-market-scan.png"),
+      asset("case-assets/finance/finsight-system-architecture-web.png"),
     ],
   },
   {
@@ -92,10 +72,12 @@ const projects = [
     title: "StarDist Nuclear Segmentation",
     type: "Research tooling",
     deck:
-      "A scale-aware tissue microarray segmentation workflow with a viewer for reviewing nuclei, tiles, and spatial context.",
+      "A tissue microarray segmentation workflow with a browser viewer for reviewing detections.",
     image: asset("case-assets/pathology/stardist-7-cores-overview-cover.png"),
     repo: "https://github.com/rf2960/stardist-nuclear-segmentation",
     artifact: asset("stardist-tma-viewer.html"),
+    artifactLabel: "Viewer",
+    tags: ["StarDist", "OpenSlide", "Pathology", "HTML Viewer", "QA"],
     stats: [
       ["82K+", "nuclear masks"],
       ["7", "TMA cores"],
@@ -121,86 +103,74 @@ const projects = [
     ],
   },
   {
-    slug: "finance-news-analyzer",
-    title: "Finance News Analyzer",
-    type: "RAG + Agent Workflow",
+    slug: "pancreas-he-pathology",
+    title: "Pancreas H&E Pathology AI",
+    type: "Biomedical ML",
     deck:
-      "A Streamlit system that turns ticker-level financial news into cited short-horizon signal packets.",
-    image: asset("case-assets/finance/finsight-rag-cover.svg"),
-    repo: "https://github.com/rf2960/finance-news-analyzer",
-    artifact: asset("finance-news-demo.html"),
-    report: asset("case-assets/finance/finsight-final-report.pdf"),
-    tags: ["RAG", "Agent Workflow", "LLM", "Financial News", "Retrieval"],
+      "A computer vision workflow for H&E tiles, with validation, threshold tuning, and model-card notes.",
+    image: asset("case-assets/pathology/pipeline_overview.png"),
+    repo: "https://github.com/rf2960/pancreas-he-pathology",
+    artifact: null,
+    tags: ["Computer Vision", "WideResNet", "Validation", "QuPath", "Model Card"],
     stats: [
-      ["3", "agent stages"],
-      ["TF-IDF", "retrieval"],
-      ["5d / 20d", "evaluation"],
+      ["43,213", "annotated tiles"],
+      ["39,944", "held-out predictions"],
+      ["0.573", "tuned tissue macro F1"],
     ],
     problem:
-      "Financial news is noisy and fast-moving. A headline can look important without being novel, well-sourced, or relevant to forward returns.",
+      "Histopathology data needs careful validation: tiles are slide-correlated, classes are imbalanced, and raw scans cannot be published casually.",
     built:
-      "I built FinSight RAG, a local Streamlit dashboard that ingests ticker-relevant news, retrieves evidence chunks, adds technical and macro context, and produces structured signal packets with citations, confidence, risks, counter-evidence, and an agent trace.",
+      "I built a public workflow around QuPath annotation export, coordinate-aware tile parsing, WideResNet training, leave-one-slide-out validation, threshold tuning, model-card notes, and figure generation.",
     decisions: [
-      "Use TF-IDF retrieval with a keyword fallback so the demo can run without heavy infrastructure.",
-      "Route evidence through Analyst, Strategist, and Decision stages instead of one undifferentiated prompt.",
-      "Support both heuristic local mode and an optional OpenAI/LangGraph path when an API key is provided.",
-      "Evaluate generated signals against 5-day and 20-day forward returns in the bundled demo sample.",
+      "Make validation design explicit.",
+      "Show artifacts without exposing private data.",
+      "Frame threshold tuning as research evidence, not clinical deployment.",
     ],
     tradeoffs: [
-      "The Streamlit UI is local; there is no hosted demo link yet.",
-      "The current retrieval layer is TF-IDF, not a dense vector index.",
-      "The evaluation sample is useful for a class project, not evidence of a production trading strategy.",
+      "The model is research-grade and not clinically deployable.",
+      "Rare classes still make macro F1 more meaningful than accuracy alone.",
     ],
     learned:
-      "RAG is most useful here when it makes sources, counter-evidence, and evaluation visible, not when it simply summarizes headlines.",
-    demo:
-      "The project runs as a local Streamlit dashboard. The linked demo page shows captured UI screens, the final report, and the system architecture; a live public app would need separate Streamlit deployment.",
-    future: [
-      "Deploy the Streamlit demo or add a short walkthrough video.",
-      "Replace TF-IDF retrieval with FAISS or Chroma for dense retrieval experiments.",
-      "Improve citation grounding and source verification.",
-      "Add sentiment, risk-event, and ticker-level monitoring views.",
-      "Evaluate retrieval quality on a larger live-data sample.",
-    ],
+      "The strongest parts of the project were leakage control, documentation, and clear limits.",
     gallery: [
-      asset("case-assets/finance/finsight-streamlit-evidence.png"),
-      asset("case-assets/finance/finsight-streamlit-evaluation.png"),
-      asset("case-assets/finance/finsight-streamlit-market-scan.png"),
-      asset("case-assets/finance/finsight-system-architecture-web.png"),
+      asset("case-assets/pathology/threshold_tuning_summary.png"),
+      asset("case-assets/pathology/qupath_to_ml_workflow.png"),
     ],
   },
   {
-    slug: "travelmind",
-    title: "TravelMind Planner",
-    type: "Agentic AI concept",
+    slug: "malaria-vaccination-modelling",
+    title: "Malaria Vaccination Roll-out Strategies",
+    type: "Research",
+    status: "Working paper",
     deck:
-      "A multi-agent travel-planning concept shown through product screens, architecture artifacts, and a hosted demo walkthrough.",
-    image: asset("case-assets/travelmind/travelmind-homepage.png"),
-    repo: "https://github.com/rf2960/travelmind-planner",
-    artifact: asset("travelmind-demo.html"),
+      "A working paper on malaria vaccination roll-out strategies in Cameroon.",
+    image: asset("case-assets/research/malaria-modelling.svg"),
+    repo: null,
+    artifact: "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5250090",
+    artifactLabel: "Paper",
+    tags: ["Mathematical Modeling", "Public Health", "SSRN", "Cameroon"],
     stats: [
-      ["2", "user flows"],
-      ["5", "planned agent roles"],
-      ["1440p", "demo walkthrough"],
+      ["SSRN", "working paper"],
+      ["25", "pages"],
+      ["2025", "posted"],
     ],
     problem:
-      "Travel planning is preference-heavy and iterative; a single prompt tends to flatten discovery, planning, and revision into one vague response.",
+      "Vaccination roll-out decisions depend on timing, demographic structure, and transmission dynamics.",
     built:
-      "I documented a product concept with destination discovery, plan enhancement, architecture diagrams, screenshots, and a high-quality hosted demo page.",
+      "I contributed to a modeling study that evaluates malaria vaccination strategies for Cameroon, connecting mathematical assumptions to public-health interpretation.",
     decisions: [
-      "Separate discovery from existing-plan enhancement.",
-      "Use agent roles to keep the workflow understandable.",
-      "Be explicit that the public artifact is a demo, not a live production app.",
+      "Frame the work as a research paper rather than a software product.",
+      "Show topic, authorship, and research context without overstating policy impact.",
     ],
     tradeoffs: [
-      "The public repo does not include a runnable backend/frontend release.",
-      "Its value is product reasoning and system decomposition, not production metrics.",
+      "The public artifact is a working paper, not a deployed health intervention.",
+      "Modeling evidence depends on assumptions, calibration, and sensitivity analysis.",
     ],
     learned:
-      "A useful AI product needs clear modes, fallback behavior, and visible assumptions.",
+      "Good research writing makes assumptions and uncertainty easy to find.",
     gallery: [
-      asset("case-assets/travelmind/discover_result.png"),
-      asset("case-assets/travelmind/plan_result.png"),
+      asset("research-impact-day-poster.jpg"),
+      asset("research-impact-day-group.jpg"),
     ],
   },
   {
@@ -208,10 +178,12 @@ const projects = [
     title: "Venture Outcomes Under Censoring",
     type: "Data storytelling",
     deck:
-      "An interactive startup-outcomes analysis that treats company status as censored evidence rather than a simple success label.",
+      "An interactive report on startup outcomes, cohort timing, and survivorship bias.",
     image: asset("case-assets/investments/venture-artifact-cohort-section.png"),
     repo: "https://github.com/rf2960/market-investment-visualization",
     artifact: "https://rf2960.github.io/market-investment-visualization/",
+    artifactLabel: "Report",
+    tags: ["Data Visualization", "Cohorts", "Survivorship Bias", "HTML"],
     stats: [
       ["HTML", "published report"],
       ["SVG", "static exports"],
@@ -220,11 +192,11 @@ const projects = [
     problem:
       "Startup data invites misleading rankings because many companies are still operating simply because they have not had enough time to exit or fail.",
     built:
-      "I built a report that foregrounds founding cohort, funding depth, market fingerprints, and careful interpretation under survivorship bias.",
+      "I built a report around founding cohort, funding depth, market fingerprints, and careful interpretation under survivorship bias.",
     decisions: [
       "Use mature cohorts for more interpretable comparisons.",
       "Keep the language descriptive rather than causal.",
-      "Design the report as a guided reading path, not a chart dump.",
+      "Organize the report around a few interpretable views.",
     ],
     tradeoffs: [
       "The dataset is static and incomplete.",
@@ -296,154 +268,34 @@ const aboutNotes = [
       "I am a data science and machine learning student at Columbia.",
   },
   {
-    title: "What I work on",
+    title: "Work",
     body:
-      "Biomedical computer vision, GenAI product concepts, forecasting, and tools for reviewing model output.",
+      "Biomedical computer vision, RAG systems, forecasting, and data visualization.",
   },
   {
     title: "Current focus",
     body:
-      "Incoming Google Maps intern on Navigation Trips forecasting; continuing pathology-image tooling on the side.",
+      "Incoming Google Maps intern on Navigation Trips forecasting. Continuing pathology-image tooling on the side.",
   },
 ];
 
 const principles = [
   {
-    title: "Show uncertainty.",
+    title: "Validation",
     body:
-      "For a classifier, planner, or report, I want assumptions and edge cases to be visible.",
+      "Make assumptions, held-out data, and limits visible.",
   },
   {
-    title: "Make work inspectable.",
+    title: "Interfaces",
     body:
-      "A viewer, demo, or report should help someone check the work without extra explanation.",
+      "Build viewers and reports that make outputs easy to inspect.",
   },
   {
-    title: "Do not overstate it.",
+    title: "Writing",
     body:
-      "I prefer a smaller project with clear limits to a larger-sounding one with vague claims.",
+      "Use clear claims and avoid overstating early work.",
   },
 ];
-
-const worlds = [
-  {
-    id: "research",
-    label: "Research",
-    title: "Biomedical ML and mathematical modeling.",
-    body:
-      "I care about validation, documentation, and being clear about what a result can and cannot say.",
-  },
-  {
-    id: "engineering",
-    label: "Engineering",
-    title: "Pipelines, forecasting, and decision surfaces.",
-    body:
-      "Earlier internships pushed me toward practical systems: SQL joins, dashboards, reporting reliability, and models that need explanation.",
-  },
-  {
-    id: "creative",
-    label: "Creative",
-    title: "Music, UI taste, and small experiments.",
-    body:
-      "Music and interface design influence how I think about structure, pacing, and editing.",
-  },
-  {
-    id: "lab",
-    label: "Lab",
-    title: "Questions that are allowed to be unfinished.",
-    body:
-      "Some prototypes are closer to sketches than products. A few belong here.",
-  },
-];
-
-const guideAnswers = [
-  {
-    keywords: ["", "empty"],
-    title: "Try a topic.",
-    body:
-      "Ask about a project, research, internships, creative work, or recruiting strengths.",
-  },
-  {
-    keywords: ["strong", "strongest", "first", "read", "best"],
-    title: "Start with pathology ML.",
-    body:
-      "It has the strongest technical evidence: data export, validation discipline, metrics, figures, and careful limitations.",
-  },
-  {
-    keywords: ["paper", "publication", "ssrn", "malaria", "cameroon", "vaccine", "vaccination"],
-    title: "The malaria paper is the main research item.",
-    body:
-      "It shows authorship, mathematical modeling, and public-health framing. I keep it separate from software projects.",
-  },
-  {
-    keywords: ["springer", "kalman", "inertial", "navigation", "stance"],
-    title: "The Springer chapter adds publication history.",
-    body:
-      "It is a conference chapter in Lecture Notes in Electrical Engineering. It is older, but still useful context.",
-  },
-  {
-    keywords: ["organoid", "organic", "counter", "segformer", "ongoing"],
-    title: "Organoid Counter is ongoing research tooling.",
-    body:
-      "It is active work around microscopy counting, a GUI workflow, and batch analysis.",
-  },
-  {
-    keywords: ["stardist", "segmentation", "nuclei", "nuclear", "viewer"],
-    title: "StarDist is about review workflow.",
-    body:
-      "The useful part is not just the count. It is the viewer that makes detections easier to inspect.",
-  },
-  {
-    keywords: ["travel", "travelmind", "agent", "llm", "genai", "ai"],
-    title: "TravelMind is a product concept.",
-    body:
-      "Its value is the breakdown of an AI workflow into modes, agent roles, and user-facing outputs.",
-  },
-  {
-    keywords: ["creative", "music", "design", "ui"],
-    title: "Creative work is a secondary thread.",
-    body:
-      "It shows taste, pacing, interface calmness, and editing. I keep it light on the site.",
-  },
-  {
-    keywords: ["google", "forecast", "maps", "intern"],
-    title: "Google Maps is incoming work.",
-    body:
-      "It is incoming forecasting work for Navigation Trips, so I mention it without claiming impact yet.",
-  },
-  {
-    keywords: ["venture", "startup", "visualization", "censoring", "data"],
-    title: "Venture outcomes is about careful comparison.",
-    body:
-      "It uses cohort maturity and survivorship bias to avoid overreading startup outcome data.",
-  },
-  {
-    keywords: ["finance", "news", "rag", "agent", "finsight", "ticker", "market"],
-    title: "Finance News Analyzer is the most AI-focused project.",
-    body:
-      "It combines retrieval, a three-stage agent workflow, Streamlit UI, source audit, and forward-return evaluation. It is framed as research tooling, not financial advice.",
-  },
-  {
-    keywords: ["contact", "email", "resume", "linkedin", "github"],
-    title: "Use the ending links.",
-    body:
-      "The contact section has email, resume, GitHub, and LinkedIn in one place. For a recruiter, resume plus pathology ML is the cleanest path.",
-  },
-];
-
-function getGuideAnswer(question) {
-  const text = question.trim().toLowerCase();
-  if (!text) return guideAnswers[0];
-  return (
-    guideAnswers
-      .slice(1)
-      .find((item) => item.keywords.some((keyword) => text.includes(keyword))) || {
-      title: "Best starting points",
-      body:
-        "The strongest pieces are pathology ML for technical depth, Finance News Analyzer for RAG/agents, StarDist for review tooling, and TravelMind for product reasoning.",
-    }
-  );
-}
 
 function clamp(value, min, max) {
   return Math.min(max, Math.max(min, value));
@@ -499,15 +351,14 @@ function scrollToChapter(id, behavior = "smooth") {
 
 function App() {
   const [focusedProject, setFocusedProject] = useState(null);
-  const [guideAnswer, setGuideAnswer] = useState(null);
   const chapter = useNarrativeMotion();
 
   useEffect(() => {
-    document.title = "Ruochen Feng - ML systems, research, and creative tools";
+    document.title = "Ruochen Feng - Data Science and Machine Learning";
     const description = document.querySelector('meta[name="description"]');
     description?.setAttribute(
       "content",
-      "Portfolio of Ruochen Feng: ML projects, research tooling, publications, and selected product experiments.",
+      "Portfolio of Ruochen Feng: applied ML projects, research tooling, publications, and data products.",
     );
   }, []);
 
@@ -529,9 +380,10 @@ function App() {
       "/projects": "work",
       "/research": "research",
       "/publications": "research",
-      "/experience": "worlds",
-      "/creative": "worlds",
-      "/lab": "worlds",
+      "/experience": "ongoing",
+      "/creative": "ongoing",
+      "/lab": "ongoing",
+      "/ongoing": "ongoing",
       "/contact": "contact",
     };
     const hashChapter = window.location.hash.replace("#", "");
@@ -586,12 +438,7 @@ function App() {
         <About />
         <SelectedWork onOpenProject={openProject} focusedSlug={focusedProject?.slug} />
         <Research />
-        <Worlds
-          guideAnswer={guideAnswer}
-          onAsk={(question) => {
-            setGuideAnswer(getGuideAnswer(question));
-          }}
-        />
+        <Ongoing />
         <Ending />
       </main>
 
@@ -648,13 +495,13 @@ function Landing() {
     <section className="stage landing-stage" id="identity" aria-label="Identity">
       <div className="hero-name-wrap">
         <LogoMark />
-        <p className="stage-kicker">Data science / ML / research tools</p>
+        <p className="stage-kicker">Data Science / Machine Learning</p>
         <h1 className="hero-name">
           <span>Ruochen</span>
           <span>Feng</span>
         </h1>
         <p className="identity-line">
-          I build ML tools, data products, and interfaces for reviewing model output.
+          Applied ML, research tooling, and data-driven products.
         </p>
       </div>
       <div className="scroll-cue" aria-hidden="true">
@@ -670,10 +517,10 @@ function About() {
     <section className="stage about-stage" id="about" aria-label="About Ruochen Feng">
       <div className="chapter-label">01 / About</div>
       <div className="about-intro">
-        <h2>I work across ML, research tooling, and product interfaces.</h2>
+        <h2>ML work with visible evidence.</h2>
         <p>
-          I care about the parts after a model runs: validation, review,
-          documentation, and whether the output can be questioned.
+          I focus on applied systems where results can be checked: model
+          validation, source review, visual QA, and clear reports.
         </p>
       </div>
       <div className="about-body">
@@ -713,8 +560,8 @@ function SelectedWork({ onOpenProject, focusedSlug }) {
       <div className="work-heading">
         <h2>Selected work</h2>
         <p>
-          A small set of projects across research, ML tooling, product demos, and data
-          visualization.
+          Five projects that best show technical depth, research context, and visual
+          evidence.
         </p>
       </div>
       <div className="work-controls" aria-label="Project carousel controls">
@@ -748,11 +595,16 @@ function SelectedWork({ onOpenProject, focusedSlug }) {
                   <em>{project.deck}</em>
                   {project.tags && (
                     <span className="work-tags">
-                      {project.tags.slice(0, 3).map((tag) => (
+                      {project.tags.slice(0, 5).map((tag) => (
                         <i key={tag}>{tag}</i>
                       ))}
                     </span>
                   )}
+                  <span className="work-action-row">
+                    {project.repo && <i>GitHub</i>}
+                    {project.artifact && <i>{project.artifactLabel || "Demo"}</i>}
+                    {project.report && <i>Report</i>}
+                  </span>
                 </span>
                 <span className="work-image">
                   <img
@@ -812,7 +664,7 @@ function ProjectFocus({ project, onClose }) {
               )}
               {project.artifact && (
                 <a href={project.artifact} target="_blank" rel="noreferrer">
-                  Open artifact
+                  {project.artifactLabel || "Open artifact"}
                 </a>
               )}
               {project.report && (
@@ -842,16 +694,6 @@ function ProjectFocus({ project, onClose }) {
           ))}
         </div>
 
-        <div className="focus-grid">
-          <FocusBlock title="Problem" body={project.problem} />
-          <FocusBlock title="What I built" body={project.built} />
-          <FocusList title="Key decisions" items={project.decisions} />
-          <FocusList title="Tradeoffs" items={project.tradeoffs} />
-          <FocusBlock title="What I learned" body={project.learned} wide />
-          {project.demo && <FocusBlock title="Demo" body={project.demo} wide />}
-          {project.future && <FocusList title="Limitations / future work" items={project.future} wide />}
-        </div>
-
         <div className="focus-gallery">
           {project.gallery.map((src, index) => (
             <a
@@ -865,6 +707,16 @@ function ProjectFocus({ project, onClose }) {
               <img src={src} alt={`${project.title} visual ${index + 1}`} loading="lazy" />
             </a>
           ))}
+        </div>
+
+        <div className="focus-grid">
+          <FocusBlock title="Problem" body={project.problem} />
+          <FocusBlock title="What I built" body={project.built} />
+          <FocusList title="Key decisions" items={project.decisions} />
+          <FocusList title="Tradeoffs" items={project.tradeoffs} />
+          <FocusBlock title="What I learned" body={project.learned} wide />
+          {project.demo && <FocusBlock title="Demo" body={project.demo} wide />}
+          {project.future && <FocusList title="Limitations / future work" items={project.future} wide />}
         </div>
       </article>
     </div>
@@ -901,8 +753,7 @@ function Research() {
         <div className="research-intro">
           <h2>Research and publications</h2>
           <p>
-            Papers, research activity, and ongoing tools. I keep these separate from
-            product demos.
+            Publications and research activity, separated from software projects.
           </p>
         </div>
         <div className="publication-list">
@@ -944,10 +795,18 @@ function Research() {
         </div>
       </div>
 
+    </section>
+  );
+}
+
+function Ongoing() {
+  return (
+    <section className="stage ongoing-stage" id="ongoing" aria-label="Ongoing work">
+      <div className="chapter-label">04 / Ongoing</div>
       <article className="ongoing-card">
         <div>
           <span>{ongoingWork.tag}</span>
-          <h3>{ongoingWork.title}</h3>
+          <h2>{ongoingWork.title}</h2>
           <p>{ongoingWork.description}</p>
           <ul>
             {ongoingWork.details.map((item) => (
@@ -966,77 +825,6 @@ function Research() {
   );
 }
 
-function Worlds({ guideAnswer, onAsk }) {
-  const [question, setQuestion] = useState("");
-
-  function ask(value) {
-    const finalQuestion = value ?? question;
-    setQuestion(finalQuestion);
-    onAsk(finalQuestion);
-  }
-
-  return (
-    <section className="stage worlds-stage" id="worlds" aria-label="Sub-worlds">
-      <div className="chapter-label">04 / Expansion</div>
-      <div className="worlds-layout">
-        <div className="worlds-copy">
-          <h2>Other directions</h2>
-          <p>
-            A few areas outside the main project carousel: research, engineering
-            practice, creative work, and experiments.
-          </p>
-        </div>
-        <div className="world-grid">
-          {worlds.map((world) => (
-            <article key={world.id} className={`world-card ${world.id}`}>
-              <span>{world.label}</span>
-              <h3>{world.title}</h3>
-              <p>{world.body}</p>
-            </article>
-          ))}
-        </div>
-      </div>
-
-      <div className="ask-strip">
-        <div>
-          <span>Site guide</span>
-          <h3>Quick lookup</h3>
-        </div>
-        <div className="ask-console">
-          <div className="ask-input">
-            <input
-              value={question}
-              onChange={(event) => setQuestion(event.target.value)}
-              onKeyDown={(event) => {
-                if (event.key === "Enter") ask();
-              }}
-              placeholder="Ask about projects, research, design, resume..."
-              aria-label="Ask the portfolio"
-            />
-            <button type="button" onClick={() => ask()}>
-              Ask
-            </button>
-          </div>
-          {guideAnswer ? (
-            <article aria-live="polite">
-              <h4>{guideAnswer.title}</h4>
-              <p>{guideAnswer.body}</p>
-            </article>
-          ) : (
-            <article aria-live="polite">
-              <h4>Ask a topic.</h4>
-              <p>
-                This is a local index. It points common questions to the relevant
-                section.
-              </p>
-            </article>
-          )}
-        </div>
-      </div>
-    </section>
-  );
-}
-
 function Ending() {
   return (
     <section className="stage ending-stage" id="contact" aria-label="Contact">
@@ -1044,8 +832,7 @@ function Ending() {
         <p className="chapter-label">05 / Contact</p>
         <h2>Contact</h2>
         <p>
-          I am open to data science, ML research, product-oriented AI, and small
-          collaborations.
+          Open to data science, applied ML, research tooling, and product-oriented AI work.
         </p>
         <div className="ending-links">
           <a href={links.email}>Email</a>

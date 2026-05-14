@@ -4,7 +4,7 @@ A handcrafted personal portfolio for Ruochen Feng, built with React and Vite.
 
 The site is designed as a continuous narrative experience rather than a resume
 dump or disconnected set of pages. Its flow moves from identity to about,
-selected work, research, expansion worlds, and contact.
+selected work, research, ongoing work, and contact.
 
 ## Structure
 
@@ -26,10 +26,9 @@ GitHub Pages fallback support is handled by copying `dist/index.html` to
 - Academic publication section for working papers and conference chapters
 - Research activity photography and an ongoing-work highlight
 - Reversible project transitions using the browser View Transitions API when available
-- Local input-based portfolio guide powered by curated site notes
 - Minimal RF identity mark used for favicon and navigation
 - SEO and Open Graph metadata
-- Responsive narrative layout with accessible links, buttons, and form controls
+- Responsive narrative layout with accessible links and buttons
 
 ## Development
 

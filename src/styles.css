@@ -213,8 +213,6 @@ img {
 .stage-kicker,
 .chapter-label,
 .work-copy > span,
-.world-card > span,
-.ask-strip span,
 .publication > span,
 .research-moment > div > span,
 .ongoing-card > div > span,
@@ -322,7 +320,6 @@ p {
 
 .about-intro p,
 .work-heading p,
-.worlds-copy p,
 .ending-card p {
   max-width: 640px;
   font-size: 1.08rem;
@@ -357,7 +354,7 @@ p {
 }
 
 .principle {
-  min-height: 250px;
+  min-height: 190px;
   padding: 1.35rem;
   border: 1px solid var(--line);
   border-radius: 8px;
@@ -375,7 +372,7 @@ p {
 }
 
 .principle h3 {
-  margin-top: 4.2rem;
+  margin-top: 2.8rem;
 }
 
 .work-stage {
@@ -503,6 +500,7 @@ p {
 }
 
 .work-tags,
+.work-action-row,
 .focus-tags {
   display: flex;
   flex-wrap: wrap;
@@ -518,6 +516,7 @@ p {
 }
 
 .work-tags i,
+.work-action-row i,
 .focus-tags span {
   display: inline-flex;
   align-items: center;
@@ -532,6 +531,16 @@ p {
   font-weight: 820;
   letter-spacing: 0;
   text-transform: none;
+}
+
+.work-action-row {
+  margin-top: 0.25rem;
+}
+
+.work-action-row i {
+  border-color: rgba(23, 22, 20, 0.22);
+  background: rgba(23, 22, 20, 0.055);
+  color: var(--ink);
 }
 
 .work-image {
@@ -977,9 +986,9 @@ figure {
   box-shadow: var(--shadow);
 }
 
-.ongoing-card h3 {
+.ongoing-card h2 {
   margin-top: 1.2rem;
-  font-size: 2.4rem;
+  font-size: 4rem;
 }
 
 .ongoing-card li {
@@ -1005,119 +1014,10 @@ figure {
   object-fit: contain;
 }
 
-.worlds-stage {
-  min-height: 100svh;
-}
-
-.worlds-layout {
+.ongoing-stage {
   display: grid;
-  grid-template-columns: minmax(0, 0.75fr) minmax(0, 1.25fr);
-  gap: 2rem;
-  align-items: start;
-}
-
-.worlds-copy {
-  position: sticky;
-  top: 7rem;
-}
-
-.world-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1rem;
-}
-
-.world-card {
-  min-height: 300px;
-  padding: 1.2rem;
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  background: rgba(255, 252, 246, 0.58);
-  box-shadow: 0 18px 46px rgba(41, 34, 26, 0.055);
-  transition:
-    transform 220ms ease,
-    background-color 220ms ease;
-}
-
-.world-card:hover {
-  transform: translateY(-4px);
-  background: rgba(255, 252, 246, 0.82);
-}
-
-.world-card h3 {
-  margin-top: 4rem;
-  font-size: 1.75rem;
-}
-
-.world-card.research {
-  background: color-mix(in srgb, #e6eee2 62%, rgba(255, 252, 246, 0.8));
-}
-
-.world-card.engineering {
-  background: color-mix(in srgb, #e4e9ec 58%, rgba(255, 252, 246, 0.82));
-}
-
-.world-card.creative {
-  background: color-mix(in srgb, #efe4d8 58%, rgba(255, 252, 246, 0.82));
-}
-
-.world-card.lab {
-  background: color-mix(in srgb, #e9e4ef 48%, rgba(255, 252, 246, 0.84));
-}
-
-.ask-strip {
-  display: grid;
-  grid-template-columns: minmax(0, 0.72fr) minmax(0, 1.28fr);
-  gap: 1rem;
-  margin-top: 4rem;
-  padding: 1rem;
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  background: rgba(255, 252, 246, 0.68);
-  box-shadow: var(--shadow);
-}
-
-.ask-input {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  overflow: hidden;
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  background: #fffdf8;
-}
-
-.ask-input input {
-  min-width: 0;
-  padding: 0.85rem 1rem;
-  border: 0;
-  background: transparent;
-  color: var(--ink);
-  outline: none;
-}
-
-.ask-input button {
-  padding: 0 1rem;
-  background: var(--ink);
-  color: var(--paper);
-  font-weight: 850;
-}
-
-.ask-console article {
-  margin-top: 0.75rem;
-  padding: 0.9rem;
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  background: rgba(240, 232, 220, 0.72);
-}
-
-.ask-console h4 {
-  margin: 0;
-  font-family: "Fraunces", Georgia, serif;
-  font-size: 1.18rem;
-}
-
-.ask-console p {
-  margin-bottom: 0;
+  align-content: center;
+  min-height: 86svh;
 }
 
 .ending-stage {
@@ -1181,15 +1081,12 @@ figure {
   .focus-hero,
   .research-layout,
   .research-moment,
-  .ongoing-card,
-  .worlds-layout,
-  .ask-strip {
+  .ongoing-card {
     grid-template-columns: 1fr;
   }
 
   .about-intro,
-  .research-intro,
-  .worlds-copy {
+  .research-intro {
     position: static;
   }
 
@@ -1201,7 +1098,6 @@ figure {
     justify-content: flex-start;
   }
 
-  .world-grid,
   .moment-gallery,
   .focus-stats,
   .focus-grid,
@@ -1264,7 +1160,7 @@ figure {
   }
 
   .publication h3,
-  .ongoing-card h3 {
+  .ongoing-card h2 {
     font-size: 1.65rem;
   }
 
@@ -1280,14 +1176,6 @@ figure {
     max-height: 94svh;
   }
 
-  .ask-input {
-    grid-template-columns: 1fr;
-    border-radius: 8px;
-  }
-
-  .ask-input button {
-    min-height: 42px;
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {
