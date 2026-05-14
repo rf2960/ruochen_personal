@@ -115,7 +115,7 @@ const projects = [
     stats: [
       ["43,213", "annotated tiles"],
       ["39,944", "held-out predictions"],
-      ["0.573", "tuned tissue macro F1"],
+      ["+39%", "macro-F1 lift"],
     ],
     problem:
       "Histopathology data needs careful validation: tiles are slide-correlated, classes are imbalanced, and raw scans cannot be published casually.",
