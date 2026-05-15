@@ -263,37 +263,24 @@ const ongoingWork = {
 
 const aboutNotes = [
   {
-    title: "Background",
+    title: "Education",
     body:
-      "I am a data science and machine learning student at Columbia.",
+      "M.S. Data Science at Columbia University. H.B.Sc. from the University of Toronto, with a Mathematics and Statistics double major and Computer Science minor.",
   },
   {
-    title: "Work",
+    title: "Research",
     body:
-      "Biomedical computer vision, RAG systems, forecasting, and data visualization.",
+      "Machine learning researcher at Columbia University Irving Medical Center, with work across biomedical imaging, single-cell data, public-health modeling, and NLP.",
   },
   {
-    title: "Current focus",
+    title: "Industry",
     body:
-      "Incoming Google Maps intern on Navigation Trips forecasting. Continuing pathology-image tooling on the side.",
-  },
-];
-
-const principles = [
-  {
-    title: "Validation",
-    body:
-      "Make assumptions, held-out data, and limits visible.",
+      "Incoming Data Scientist Intern at Google Maps, working on Navigation Trips forecasting. Previous internships covered financial data pipelines, SQL validation, and market-risk analysis.",
   },
   {
-    title: "Interfaces",
+    title: "Current work",
     body:
-      "Build viewers and reports that make outputs easy to inspect.",
-  },
-  {
-    title: "Writing",
-    body:
-      "Use clear claims and avoid overstating early work.",
+      "Building applied ML and data tools: pathology-image workflows, RAG systems for financial news, forecasting experiments, and visual reports.",
   },
 ];
 
@@ -517,10 +504,10 @@ function About() {
     <section className="stage about-stage" id="about" aria-label="About Ruochen Feng">
       <div className="chapter-label">01 / About</div>
       <div className="about-intro">
-        <h2>ML work with visible evidence.</h2>
+        <h2>Data science, ML, and applied research.</h2>
         <p>
-          I focus on applied systems where results can be checked: model
-          validation, source review, visual QA, and clear reports.
+          I work on models and data products where the result needs to be
+          inspected, explained, or used by someone else.
         </p>
       </div>
       <div className="about-body">
@@ -530,15 +517,6 @@ function About() {
               <h3>{item.title}</h3>
               <p>{item.body}</p>
             </article>
-          ))}
-        </div>
-        <div className="principle-track">
-          {principles.map((item, index) => (
-            <article className="principle" key={item.title}>
-            <span>{String(index + 1).padStart(2, "0")}</span>
-            <h3>{item.title}</h3>
-            <p>{item.body}</p>
-          </article>
           ))}
         </div>
       </div>
